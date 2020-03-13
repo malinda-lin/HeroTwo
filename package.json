@@ -1,0 +1,16 @@
+{
+  "name": "hero",
+  "version": "1.0.0",
+  "description": "2D game",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",
+    "start-dev": "live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "phaser": "^3.22.0"
+  }
+}
