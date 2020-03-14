@@ -1,0 +1,13 @@
+Used Tiled to create tilemap
+
+tilemap artwork:
+Author: ArMM1998
+https://opengameart.org/content/zelda-like-tilesets-and-sprites
+https://craftpix.net/freebies/free-tropical-medieval-city-2d-tileset/
+Author: Hyptosis(Submitted by Zabin)
+https://opengameart.org/content/lots-of-free-2d-tiles-and-sprites-by-hyptosis
+
+sprites:
+Pixel Frog
+https://pixel-frog.itch.io/pixel-adventure-1
+https://pixel-frog.itch.io/pixel-adventure-2

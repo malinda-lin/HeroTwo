@@ -60,7 +60,10 @@ function create() {
   layerOne = heroMap
     .createStaticLayer('groundLevel', overWorldTiles)
     .setDepth(-2);
-  layerTwo = heroMap.createStaticLayer('upperLevel', allTiles).setDepth(-1);
+  console.log('hero.tilesets', heroMap.tilesets);
+  layerTwo = heroMap
+    .createStaticLayer('upperLevel', heroMap.tilesets)
+    .setDepth(-1);
   // layerThree = heroMap.createStaticLayer('rocks', allTiles);
   // layerFour = heroMap.createStaticLayer('grasstwo', allTiles);
   // layerFive = heroMap.createStaticLayer('grass', allTiles);
