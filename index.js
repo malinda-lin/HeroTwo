@@ -1,7 +1,7 @@
 const config = {
   type: Phaser.AUTO,
-  width: 1600,
-  height: 1200,
+  width: 1000,
+  height: 700,
   physics: {
     default: 'arcade',
     arcade: {
@@ -19,41 +19,65 @@ const game = new Phaser.Game(config);
 
 function preload() {
   // ---------------TileMap--------------
-  game.load.tilemap(
-    'heroMap',
-    './assets/heroMap.json',
-    null,
-    Phaser.Tilemap.TILED_JSON
-  );
-  game.load.image('overWorld', './assets/Overworld.png');
-  game.load.image('hyptosis', './assets/hyptosis.png');
-  game.load.image('grass', './assets/greenery_4.png');
-  game.load.image('tree', './assets/backgroundassets.png');
+  this.load.image('overWorld', './assets/Overworld.png');
+  this.load.image('hyptosis', './assets/hyptosis.png');
+  this.load.image('grass', './assets/greenery.png');
+  this.load.image('tree', './assets/backgroundassets.png');
+
+  this.load.tilemapTiledJSON('heroMap', './assets/heroMap.json');
   // ----------------Sprites------------------
+  this.load.spritesheet('pinkManIdle', './assets/PinkMan/Idle(32x32).png', {
+    frameWidth: 32,
+    frameHeight: 32
+  });
 }
 
-let map;
+let heroMap;
 let overWorldTiles;
 let hyptosisTiles;
 let grassTiles;
 let treeTiles;
+const allTiles = [overWorldTiles, hyptosisTiles, grassTiles, treeTiles];
 let layerOne;
 let layerTwo;
+let layerThree;
+let layerFour;
+let layerFive;
+let layerSix;
+let layerSeven;
+let layerEight;
+let playerOne;
 
 function create() {
-  game.stage.backgroundColor = '#fff';
-  map = this.make.tilemap({key: 'heroMap'});
+  // ----------------Map----------------
+  // game.stage.backgroundColor = '#fff';
+  heroMap = this.add.tilemap('heroMap');
   // map = game.add.tilemap('heroMap');
-  overWorldTiles = map.addTilesetImage('Overworld', 'overWorld');
-  hyptosisTiles = map.addTilesetImage('terrainother', 'hyptosis');
-  grassTiles = map.addTilesetImage('grass', 'grass');
-  treeTiles = map.addTilesetImage('terrain', 'tree');
-  layerOne = map.createDynamicLayer('Tile Layer 1', [overWorldTiles]);
-  layerTwo = map.createDynamicLayer('Tile Layer 2', [
-    overWorldTiles,
-    hyptosisTiles,
-    treeTiles
-  ]);
+  overWorldTiles = heroMap.addTilesetImage('Overworld', 'overWorld');
+  hyptosisTiles = heroMap.addTilesetImage('terrainother', 'hyptosis');
+  grassTiles = heroMap.addTilesetImage('grass', 'grass');
+  treeTiles = heroMap.addTilesetImage('terrain', 'tree');
+  layerOne = heroMap
+    .createStaticLayer('groundLevel', overWorldTiles)
+    .setDepth(-2);
+  layerTwo = heroMap.createStaticLayer('upperLevel', allTiles).setDepth(-1);
+  // layerThree = heroMap.createStaticLayer('rocks', allTiles);
+  // layerFour = heroMap.createStaticLayer('grasstwo', allTiles);
+  // layerFive = heroMap.createStaticLayer('grass', allTiles);
+  // layerSix = heroMap.createStaticLayer('structures', allTiles);
+  // layerSeven = heroMap.createStaticLayer('entrance', allTiles);
+  // layerEight = heroMap.createStaticLayer('propsTopTop', allTiles);
+  // ------------PlayerOne--------------
+  playerOne = this.physics.add.sprite(100, 450, 'pinkManIdle');
+  playerOne.setCollideWorldBounds(true);
+  // this.anims.create({
+  //   key: 'idle',
+  //   frames: this.anims.generateFrameNumbers('pinkManIdle', {start: 1, end: 10}),
+  //   frameRate: 10,
+  //   repeat: -1
+  // });
+  // ---------------interactions-----------
+  // this.physics.add.collider();
 }
 
 function update() {}
