@@ -14,13 +14,14 @@ class GameScene extends Phaser.Scene {
       'heroMapCollider',
       '../assets/csv/heroMapCollider.csv'
     );
+    // this.load.tilemapCSV(
+    //   'heroMapCollider',
+    //   '../assets/csv/heroMapCollider.csv'
+    // );
     // ---------------images---------------
     this.load.image('wholeGame', '../assets/heroMapGame.png');
     this.load.image('flag', '../assets/heroMapFlag.png');
-    // this.load.image('entrance', '../assets/heroMapEntrance.png');
-    // this.load.image('bottomCollide', '../assets/heroMapCollideObjects.png');
-    this.load.image('grass', '../assets/heroMapGrass.png');
-    // this.load.image('bridges', '../assets/heroMapBridges.png');
+    this.load.image('grass', '../assets/heroMapGrassLayer.png');
     this.load.image('top', '../assets/heroMapTop.png');
     this.load.spritesheet('pinkMan', '../assets/pinkMan.png', {
       frameWidth: 32,
@@ -40,17 +41,14 @@ class GameScene extends Phaser.Scene {
       tileHeight: 32
     });
     const tileset = map.addTilesetImage('greenery');
-    const grassLayer = map.createStaticLayer(0, tileset);
-    grassLayer.setDepth(-2);
+    const gameLayer = map.createStaticLayer(0, tileset);
+    gameLayer.setDepth(-2);
     map.setCollisionBetween(0, 5);
     // ---------------images--------------
     this.add.image(640, 480, 'wholeGame').setDepth(-1);
-    // this.add.image(640, 480, 'entrance');
-    // this.add.image(640, 480, 'bottomCollide');
     this.add.image(640, 480, 'flag').setDepth(1);
     this.add.image(640, 480, 'grass').setDepth(1);
     this.add.image(640, 480, 'top').setDepth(1);
-    // this.add.image(640, 480, 'bridges').setDepth(1);
     // ------------playerOne--------------
     playerOne = this.physics.add.sprite(100, 450, 'pinkMan');
     playerOne.setDepth(0);
@@ -99,7 +97,7 @@ class GameScene extends Phaser.Scene {
       frameRates: 10
     });
     // ------------static collide--------
-    this.physics.add.collider(playerOne, grassLayer);
+    this.physics.add.collider(playerOne, gameLayer);
     // collideObjects = this.physics.add.staticGroup();
     // collideObjects.setDepth(0);
     // collideObjects.create(400, 300, 'bottomCollide');
