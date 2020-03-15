@@ -4,8 +4,6 @@
   "description": "2D game",
   "main": "index.js",
   "scripts": {
-    "start": "http-server",
-    "start-dev": "live-server",
     "build": "webpack",
     "start:dev": "webpack-dev-server"
   },
