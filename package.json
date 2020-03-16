@@ -2,6 +2,9 @@
   "name": "hero",
   "version": "1.0.0",
   "description": "2D game",
+  "engines": {
+    "node": "13.1.x"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
