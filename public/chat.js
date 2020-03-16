@@ -14,7 +14,7 @@ btn.addEventListener('click', function() {
     message: message.value,
     handle: handle.value
   });
-  // message.value = '';
+  message.value = '';
 });
 // socket.emit creates data package to be sent to socket.on in server
 message.addEventListener('keypress', function() {
