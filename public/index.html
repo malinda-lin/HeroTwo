@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <title>HeroTwo</title>
     <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+    </script>
     <!-- <script src="//cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser.js"></script>
     <script src="./node_modules/phaser/dist/phaser.js"></script> -->
     <link href="/style.css" rel="stylesheet" type="text/css" />
@@ -16,7 +19,7 @@
             <div id="output"></div>
         </div>
         <input id="handle" type="text" placeholder="Name" />
-        <input id="Message" type="text" placeholder="message" />
+        <input id="message" type="text" placeholder="message" />
         <button id="send">Send</button>
     </div>
     <script src="/chat.js"></script>

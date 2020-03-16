@@ -1,8 +1,6 @@
 // make client side connection
-const socket = io();
-// 'http://localhost:5000'
-// query DOM
 
+// query DOM
 const message = document.getElementById('message');
 const handle = document.getElementById('handle');
 const btn = document.getElementById('send');
