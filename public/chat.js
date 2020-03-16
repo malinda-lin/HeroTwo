@@ -14,6 +14,7 @@ btn.addEventListener('click', function() {
     message: message.value,
     handle: handle.value
   });
+  message.value = '';
 });
 // socket.emit creates data package to be sent to socket.on in server
 message.addEventListener('keypress', function() {
@@ -24,9 +25,14 @@ message.addEventListener('keypress', function() {
 socket.on('chatmessage', function(data) {
   // reset feedback innerHTML
   feedback.innerHTML = '';
-  output.innerHTML += `<p><strong> ${data.handle} </strong>${data.message}</p>`;
+  const today = new Date();
+  output.innerHTML += `<p><strong> ${
+    data.handle
+  } </strong>{<em><font size="1">${today.getHours()}:${today.getMinutes()}</font></em>} : ${
+    data.message
+  }</p>`;
 });
 
 socket.on('typing', function(data) {
-  feedback.innerHTML += `<p><em>${data} is typing ... </em></p>`;
+  feedback.innerHTML = `<p><em>${data} is typing ... </em></p>`;
 });
