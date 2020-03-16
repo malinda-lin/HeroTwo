@@ -83,3 +83,7 @@ font{
   font-size: xx-small;
   color: rgb(248, 141, 159);
 }
+
+#game {
+  border: 10;
+}
