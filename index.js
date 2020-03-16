@@ -8,7 +8,7 @@ const socket = require('socket.io');
 
 const path = require('path');
 
-const PORT = 4000;
+const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, function() {
   console.log(`I am listenning on ${PORT}`);
 });

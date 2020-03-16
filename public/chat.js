@@ -1,5 +1,5 @@
 // make client side connection
-const socket = io('http://localhost:4000');
+const socket = io('http://localhost:5000');
 
 // query DOM
 
