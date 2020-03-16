@@ -50,6 +50,8 @@ let music;
 function create() {
   // ---------audio---------
   music = this.sound.add('SuTurno');
+  music.setVolume(0.1); // volume: 0 to 1
+  music.setLoop(true); // loop: true/false
   music.play();
   // ----------------map----------------
   map = this.make.tilemap({
@@ -119,9 +121,9 @@ function create() {
   // ---------------interactions-----------
   this.physics.add.collider(playerOne, playerTwo);
 
-  // this.cameras.main.startFollow(playerOne, true, 0.08, 0.08);
+  this.cameras.main.startFollow(playerOne, true, 0.08, 0.08);
 }
-
+// TODO: chatbox typing needs to be seperate from game keys
 function update() {
   const cursors = this.input.keyboard.createCursorKeys();
   // -------playerOne controls--------------
