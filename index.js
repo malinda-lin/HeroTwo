@@ -19,10 +19,15 @@ app.use(express.static('public'));
 // socket set up
 const io = socket(server);
 
-io.on('connection', function(someSocket) {
-  console.log(`${someSocket.id} has connected to io`);
-
-  someSocket.on('chatmessage', function(data) {
+io.on('connection', function(socket) {
+  console.log(`${socket.id} has connected to io`);
+  // client data packages are sent here to be emitted to all/single sockets
+  socket.on('chatmessage', function(data) {
     io.sockets.emit('chatmessage', data);
   });
+
+  socket.on('typing', function(data) {
+    socket.broadcast.emit('typing', data);
+  });
+
 });
