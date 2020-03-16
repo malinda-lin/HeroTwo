@@ -11,3 +11,8 @@ sprites:
 Pixel Frog
 https://pixel-frog.itch.io/pixel-adventure-1
 https://pixel-frog.itch.io/pixel-adventure-2
+
+music:
+Su Turno
+Author: Patrick de Arteaga 
+https://patrickdearteaga.com/arcade-music/
