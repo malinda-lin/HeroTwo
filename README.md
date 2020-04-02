@@ -6,7 +6,4 @@ https://damp-dawn-63084.herokuapp.com/
 
 To Get Started:
   1. Use the link above to demo the game!
-  2. Clone this repo,
-    - npm install,
-    - npm run start,
-    - you're good to go!
+  2. Clone this repo, npm install, npm run start, and you're good to go!
