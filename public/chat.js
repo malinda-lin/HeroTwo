@@ -36,3 +36,4 @@ socket.on('chatmessage', function(data) {
 socket.on('typing', function(data) {
   feedback.innerHTML = `<p><em>${data} is typing ... </em></p>`;
 });
+

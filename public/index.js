@@ -6,7 +6,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true
+      debug: false
     }
   },
   // TODO: make and add LoadingScene & EndScene
@@ -63,6 +63,9 @@ function create() {
   const gameLayer = map.createStaticLayer(0, tileset);
   gameLayer.setDepth(-2);
   map.setCollisionBetween(0, 5);
+  // -------------world bounds-------------------
+  this.physics.world.bounds.width = map.widthInPixels;
+  this.physics.world.bounds.height = map.heightInPixels;
   // ---------------images--------------
   this.add.image(640, 480, 'wholeGame').setDepth(-1);
   this.add.image(640, 480, 'flag').setDepth(1);
@@ -120,8 +123,10 @@ function create() {
   this.physics.add.collider(playerTwo, gameLayer);
   // ---------------interactions-----------
   this.physics.add.collider(playerOne, playerTwo);
-
-  this.cameras.main.startFollow(playerOne, true, 0.08, 0.08);
+  // --------------camera---------------------
+  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+  this.cameras.main.startFollow(playerOne);
+  this.cameras.main.roundPixels = true;
 }
 // TODO: chatbox typing needs to be seperate from game keys
 function update() {
